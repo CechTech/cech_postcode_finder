@@ -1,0 +1,153 @@
+@import "normalize";
+@import "breakpoint";
+
+$medium-screen: 768px;
+
+@mixin background($image) {
+	background: url(../images/#{$image}) no-repeat;
+	background-attachment: fixed;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  background-position: 50% 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin centerY {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 100%;
+	background-color: #252525;
+	color: #eeeeee;
+	overflow: hidden;
+}
+
+h1 {
+	font-size: 18pt;
+}
+
+h2 {
+  margin-bottom: 2.2rem;
+  font-size: 2.3rem
+}
+
+@include breakpoint($medium-screen) {
+	h1 {
+		font-size: 4.2rem;
+    margin: 1.7rem 0;
+    font-weight: 400;
+	}
+
+	h2 {
+		font-size: 2.3rem;
+    font-weight: 400;
+	}
+}
+
+main {
+	visibility: hidden;
+
+	#bckg1 {
+		visibility: hidden;
+		@include background("city_background.jpg");
+	}
+
+	#bckg2 {
+		visibility: hidden;
+		@include background("bridge_1_background.jpg");
+	}
+
+	#bckg3 {
+		visibility: hidden;
+		@include background("bridge_2_background.jpg");
+	}
+
+	.container {
+		text-align: center;
+
+		background-color: rgba(0,0,0,0.65);
+		padding: 5px 30px 30px 30px;
+		border-radius: 5px;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		max-width: 1140px;
+		width: 90%;
+
+		form {
+			margin: 0 auto;
+		}
+
+		.alert {
+			border-radius: 5px;
+		  margin-top: 20px;
+		  margin-bottom: 0;
+			display: none;
+      font-size: 1.7rem;
+		}
+
+		#map {
+			display: none;
+			margin-top: 20px;
+			height: 270px;
+		}
+	}
+
+	footer {
+		display: none;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+
+		#footer-content {
+			max-width: 1140px;
+			width: 90%;
+			margin: 0 auto;
+			font-size: 1.2rem;
+
+			a {
+				color: #ffffff;
+
+				&:hover {
+					color: #d3d3d3;
+				}
+			}
+		}
+	}
+
+	@include breakpoint($medium-screen) {
+		.container {
+			padding: 10px 50px 50px 50px;
+		}
+
+		footer {
+			display: block;
+      word-spacing: 1px;
+      font-weight: 200;
+      font-size: 1.7rem;
+
+      #footer-content {
+        text-align: center;
+        margin: 0 auto;
+        font-size: 1.7rem;
+        padding-bottom: 5rem;
+      }
+		}
+	}
+}

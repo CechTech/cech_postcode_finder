@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Simpe javascript application that finds postcode of your entered address. Built with jQuery, , GSAP, XML, Google Maps Api and Bootstrap" />
+		<meta name="author" content="Jiří Čech" />
+		<meta name="keywords" content="postcode, finder, find, address, city, street, google, map, api" />
+		<link rel="icon" href="images/favicon.png" type="image/x-icon" sizes="16x16" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&subset=latin-ext" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+
+		<link rel="stylesheet" href="stylesheets/styles.min.css">
+
+    <title>Postcode Finder</title>
+	</head>
+
+	<body>
+		<main>
+			<div class="background" id="bckg1"></div>
+			<div class="background" id="bckg2"></div>
+			<div class="background" id="bckg3"></div>
+
+			<div class="container">
+				<header>
+					<h1>Postcode Finder</h1>
+				</header>
+
+				<section>
+					<h2>Enter any address to find the postcode</h2>
+
+					<form>
+						<div class="input-group">
+							<input type="text" class="form-control" name="address" id="address" placeholder="Eg. 11 Wall Street, New York" autocomplete="off" autofocus>
+
+							<span class="input-group-btn">
+								<button id="findMyPostcode" class="btn btn-success" type="button">Search</button>
+							</span>
+						</div>
+					</form>
+
+					<div id="success" class="alert alert-success"></div>
+					<div id="failNoPostcode" class="alert alert-danger">Postcode not found. Try to be more specific. Eg. 11 Wall Street, New York</div>
+					<div id="failEmpty" class="alert alert-danger">Enter the address.</div>
+					<div id="failConnection" class="alert alert-danger">Could not connect to the server. Try again later.</div>
+					<div id="failWrongAddress" class="alert alert-danger">Address not found. Check your spelling.</div>
+					<div id="failMultipleResults" class="alert alert-danger">Multiple results found. Try to be more specific. Eg. 11 Wall Street, New York</div>
+					<div id='map'></div>
+				</section>
+			</div>
+
+			<footer>
+				<div id="footer-content">
+					<span>&copy; 2017 | <a href="http://www.jiricech.com/"><b>Jiří Čech</b></a> All rights reserved</span>
+				</div>
+			</footer>
+		</main>
+
+    <script src="js/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRUh6fR7nyvqZYxcisg_mDS3sDa3_Gkro" async defer></script>
+	</body>
+</html>
